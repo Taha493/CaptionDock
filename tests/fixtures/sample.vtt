@@ -1,0 +1,13 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:01.000 --> 00:00:03.500 align:start position:0%
+Hello <c>there</c>
+
+00:00:03.500 --> 00:00:06.000
+Second line
+continues here
+
+01:02.000 --> 01:04.250
+Short timestamp form

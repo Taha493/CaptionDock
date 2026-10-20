@@ -1,0 +1,41 @@
+{
+  "wireMagic": "pb3",
+  "pens": [{}],
+  "wsWinStyles": [{}, { "mhModeHint": 2, "juJustifCode": 0, "sdScrollDir": 3 }],
+  "wpWinPositions": [{}, { "apPoint": 6, "ahHorPos": 20, "avVerPos": 100, "rcRows": 2, "ccCols": 40 }],
+  "events": [
+    { "tStartMs": 0, "dDurationMs": 20000, "id": 1, "wpWinPosId": 1, "wsWinStyleId": 1 },
+    {
+      "tStartMs": 160, "dDurationMs": 4240, "wWinId": 1,
+      "segs": [
+        { "utf8": "so", "acAsrConf": 0 },
+        { "utf8": " today", "tOffsetMs": 400, "acAsrConf": 0 },
+        { "utf8": " we're", "tOffsetMs": 800, "acAsrConf": 0 },
+        { "utf8": " talking", "tOffsetMs": 1200, "acAsrConf": 0 }
+      ]
+    },
+    { "tStartMs": 2390, "dDurationMs": 2010, "wWinId": 1, "aAppend": 1, "segs": [{ "utf8": "\n" }] },
+    {
+      "tStartMs": 2400, "dDurationMs": 4000, "wWinId": 1,
+      "segs": [
+        { "utf8": "about", "acAsrConf": 0 },
+        { "utf8": " how", "tOffsetMs": 300, "acAsrConf": 0 },
+        { "utf8": " podcasts", "tOffsetMs": 700, "acAsrConf": 0 },
+        { "utf8": " work", "tOffsetMs": 1200, "acAsrConf": 0 }
+      ]
+    },
+    { "tStartMs": 4390, "dDurationMs": 2010, "wWinId": 1, "aAppend": 1, "segs": [{ "utf8": "\n" }] },
+    { "tStartMs": 4400, "dDurationMs": 3600, "wWinId": 1, "segs": [{ "utf8": "[Music]" }] },
+    { "tStartMs": 7990, "dDurationMs": 10, "wWinId": 1, "aAppend": 1, "segs": [{ "utf8": "\n" }] },
+    {
+      "tStartMs": 8000, "dDurationMs": 5000, "wWinId": 1,
+      "segs": [
+        { "utf8": "and", "acAsrConf": 0 },
+        { "utf8": " why", "tOffsetMs": 200, "acAsrConf": 0 },
+        { "utf8": " people", "tOffsetMs": 500, "acAsrConf": 0 },
+        { "utf8": " love", "tOffsetMs": 900, "acAsrConf": 0 },
+        { "utf8": " them", "tOffsetMs": 1100, "acAsrConf": 0 }
+      ]
+    }
+  ]
+}

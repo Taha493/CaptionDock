@@ -1,0 +1,15 @@
+{
+  "wireMagic": "pb3",
+  "pens": [{}],
+  "wsWinStyles": [{}],
+  "wpWinPositions": [{}],
+  "events": [
+    { "tStartMs": 0, "dDurationMs": 60000, "id": 1, "wpWinPosId": 0, "wsWinStyleId": 0 },
+    { "tStartMs": 1200, "dDurationMs": 2500, "segs": [{ "utf8": "Welcome back to the show." }] },
+    { "tStartMs": 3700, "dDurationMs": 3100, "segs": [{ "utf8": "Today we're talking about\nhow podcasts get made." }] },
+    { "tStartMs": 3700, "dDurationMs": 3100, "segs": [{ "utf8": "Today we're talking about\nhow podcasts get made." }] },
+    { "tStartMs": 6800, "dDurationMs": 1000, "segs": [{ "utf8": "   " }] },
+    { "tStartMs": 9000, "dDurationMs": 2000, "segs": [{ "utf8": "It's " }, { "utf8": "a long story." }] },
+    { "tStartMs": 12000, "segs": [{ "utf8": "No duration on this one." }] }
+  ]
+}

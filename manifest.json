@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "CaptionDock",
+  "version": "0.1.0",
+  "description": "Shows YouTube captions in a floating always-on-top window with a scrollable history.",
+  "homepage_url": "https://github.com/Taha493/CaptionDock",
+  "minimum_chrome_version": "116",
+  "permissions": ["storage"],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["src/hook.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": [
+        "src/config.js",
+        "src/youtube-adapter.js",
+        "src/transcript-store.js",
+        "src/settings.js",
+        "src/pip-styles.js",
+        "src/pip-ui.js",
+        "src/content.js"
+      ],
+      "css": ["src/page.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?><timedtext format="3">
+<head>
+<ws id="0"/>
+<wp id="0"/>
+</head>
+<body>
+<p t="1200" d="2500">Welcome back to the show.</p>
+<p t="3700" d="3100">Today&#39;s guest is &quot;Ada&quot; &amp; friends.</p>
+<p t="6800" d="2000" w="1"><s ac="0">auto</s><s t="400" ac="0"> words</s><s t="800" ac="0"> here</s></p>
+<p t="8800" d="10" w="1" a="1">
+</p>
+<p t="9000" d="1500"/>
+<p t="10000" d="2000">Line one<br/>line two</p>
+</body>
+</timedtext>

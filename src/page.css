@@ -1,0 +1,59 @@
+/* Injected into YouTube pages by the manifest. Everything is prefixed with
+   "captiondock" so it cannot clash with YouTube's own styles. */
+
+/* "Hide YT" option: keep YouTube's caption overlay in the page (fallback mode
+   reads it) but make it invisible. */
+html.captiondock-hide-native .ytp-caption-window-container {
+  opacity: 0 !important;
+}
+
+.captiondock-player-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: top;
+  max-width: 64px; /* YouTube's .ytp-button sets the real size; this is a guard */
+}
+
+.captiondock-player-btn svg {
+  pointer-events: none;
+}
+
+.captiondock-player-btn[aria-pressed="true"] .captiondock-icon-accent {
+  fill: #3ea6ff;
+}
+
+.captiondock-fallback-btn {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 2147483000;
+  height: 32px;
+  padding: 0 14px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  background: rgba(15, 15, 15, 0.9);
+  color: #fff;
+  font: 500 13px Roboto, Arial, sans-serif;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.captiondock-fallback-btn[aria-pressed="true"] {
+  border-color: #3ea6ff;
+}
+
+.captiondock-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 72px;
+  z-index: 2147483001;
+  max-width: min(520px, calc(100vw - 32px));
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: rgba(15, 15, 15, 0.95);
+  color: #fff;
+  font: 14px/1.4 Roboto, Arial, sans-serif;
+  transform: translateX(-50%);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}

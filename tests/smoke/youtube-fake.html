@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Fake YouTube watch page</title>
+  </head>
+  <body>
+    <!-- Served at https://www.youtube.com/watch by the extension smoke test
+         (the browser is told to resolve www.youtube.com to localhost). The
+         real extension injects itself here, like on YouTube. -->
+    <div id="movie_player" class="html5-video-player">
+      <video class="html5-main-video"></video>
+      <div class="ytp-caption-window-container"></div>
+      <div class="ytp-chrome-bottom">
+        <div class="ytp-right-controls">
+          <button class="ytp-button ytp-subtitles-button" aria-pressed="false" style="width: 48px; height: 48px">CC</button>
+          <button class="ytp-button ytp-settings-button" style="width: 48px; height: 48px">S</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      // Fake player: CC on downloads captions over XHR, like YouTube does.
+      document.querySelector('.ytp-subtitles-button').addEventListener('click', (e) => {
+        const btn = e.currentTarget;
+        const on = btn.getAttribute('aria-pressed') !== 'true';
+        btn.setAttribute('aria-pressed', String(on));
+        if (on) {
+          const xhr = new XMLHttpRequest();
+          xhr.open('GET', '/api/timedtext?v=VIDEO00001&lang=en&kind=asr&fmt=json3&pot=x');
+          xhr.send();
+        }
+      });
+    </script>
+  </body>
+</html>

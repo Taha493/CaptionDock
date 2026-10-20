@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>CaptionDock smoke test</title>
+  </head>
+  <body>
+    <!-- A minimal stand-in for YouTube's player markup. -->
+    <div id="movie_player" class="html5-video-player">
+      <video class="html5-main-video"></video>
+      <div class="ytp-caption-window-container"></div>
+      <div class="ytp-chrome-bottom">
+        <div class="ytp-right-controls">
+          <button class="ytp-button ytp-subtitles-button" aria-pressed="false"></button>
+          <button class="ytp-button ytp-settings-button"></button>
+        </div>
+      </div>
+    </div>
+    <!-- Stands in for the Document Picture-in-Picture window. -->
+    <iframe id="fakepip" style="width: 480px; height: 260px"></iframe>
+    <pre id="result">running</pre>
+
+    <script>
+      // Pretend to be a watch page before CaptionDock starts.
+      history.replaceState({}, '', '/watch?v=VIDEO00001');
+    </script>
+    <script src="/src/hook.js"></script>
+    <script>
+      // Fake player: the CC button toggles and downloads captions over XHR,
+      // like YouTube does.
+      document.querySelector('.ytp-subtitles-button').addEventListener('click', (e) => {
+        const btn = e.currentTarget;
+        const on = btn.getAttribute('aria-pressed') !== 'true';
+        btn.setAttribute('aria-pressed', String(on));
+        const v = new URLSearchParams(location.search).get('v');
+        if (on && v === 'VIDEO00001') {
+          const xhr = new XMLHttpRequest();
+          xhr.open('GET', '/api/timedtext?v=VIDEO00001&lang=en&kind=asr&fmt=json3&pot=x');
+          xhr.send();
+        }
+      });
+      // Fake Document PiP: hand back the iframe's window.
+      const frame = document.getElementById('fakepip');
+      // (The real API is a read-only getter, so plain assignment is ignored.)
+      Object.defineProperty(window, 'documentPictureInPicture', {
+        configurable: true,
+        value: {
+          requestWindow: async () => {
+            const w = frame.contentWindow;
+            w.close = () => w.dispatchEvent(new Event('pagehide'));
+            return w;
+          },
+        },
+      });
+    </script>
+    <script src="/src/config.js"></script>
+    <script src="/src/youtube-adapter.js"></script>
+    <script src="/src/transcript-store.js"></script>
+    <script src="/src/settings.js"></script>
+    <script src="/src/pip-styles.js"></script>
+    <script src="/src/pip-ui.js"></script>
+    <script src="/src/content.js"></script>
+    <script src="/tests/smoke/smoke.js"></script>
+  </body>
+</html>
